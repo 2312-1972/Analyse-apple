@@ -6,16 +6,7 @@
     <title>Analyse Dynamique des Marchés Financiers - Focus Apple</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-    <!-- Visualization & Content Choices:
-        - Key Metrics (Dashboard): Cards with dynamic text for latest index values, rates. Goal: Quick overview.
-        - Macro Inflation/Interest Rates: Bar charts for current comparisons, Line charts for historical trends (Chart.js). Goal: Show context and change. Interaction: Tooltips. Justification: Clear visual of key economic drivers.
-        - Index Performance (S&P, NASDAQ, etc.): Line charts (Chart.js) using monthly variations. Goal: Compare change over time. Interaction: Tooltips. Justification: Standard for time-series financial data.
-        - Index Volatility (VIX/Variance): Display as key stats, Line chart for VIX. Goal: Inform on risk. Interaction: Tooltips. Justification: Direct display of key risk metrics.
-        - Sector Performance: Grouped Bar chart (Chart.js) for various periods. Goal: Compare sectors. Interaction: Tooltips. Justification: Effective for comparing multiple categories.
-        - Apple Data: Dynamic text blocks. Goal: Inform specific company details.
-        - PESTEL/SWOT: Structured HTML/Tailwind. Goal: Organize qualitative analysis.
-        - Risks/Opps/Recommendations: Styled lists/cards. Goal: Inform key takeaways.
-        CONFIRMATION: NO SVG/Mermaid. All charts via Chart.js (Canvas). -->
+   
     <style>
         body { font-family: 'Inter', sans-serif; }
         .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
@@ -30,10 +21,17 @@
 </head>
 <body class="bg-slate-100 text-slate-800">
 
-    <header class="bg-slate-800 text-white p-6 shadow-lg">
-        <h1 class="text-3xl font-bold text-center">Analyse des Marchés Financiers et Recommandations pour Apple</h1>
-        <p class="text-center text-slate-300 mt-1">Octobre - Novembre 2024</p>
-    </header>
+   <header class="bg-slate-800 text-white p-6 shadow-lg flex items-center justify-between">
+   
+    <div class="flex items-center">
+        <img src="https://portfolio-frederic-toppan.vercel.app/static/media/Shenzor.665b7cdd5c7bb9ab5b85.webp" alt="Logo Shenzor" class="h-48 w-auto mr-4">
+    </div>
+ 
+    <div class="text-center flex-1">
+        <h1 class="text-2xl md:text-3xl font-bold">Analyse des Marchés Financiers et Recommandations pour Apple</h1>
+        <p class="text-slate-300 mt-1">Octobre - Novembre 2024</p>
+    </div>
+</header>
 
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex flex-wrap justify-center">
