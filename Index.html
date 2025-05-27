@@ -70,7 +70,7 @@
             }
         }
 
-        /* Tab/Nav button styles for Apple look */
+        /* Tab/Nav button styles for Apple look - these styles can remain for aesthetic */
         .tab-button {
             padding: 0.75rem 1.25rem;
             cursor: pointer;
@@ -87,6 +87,11 @@
             border-color: #007AFF;
             color: #007AFF;
             font-weight: 600;
+        }
+
+        /* Styles for .tab-content: By default, all are visible. */
+        .tab-content {
+            display: block; /* Ensure all tab-content sections are visible */
         }
 
         /* Card styles for Apple look */
@@ -135,646 +140,779 @@
 <body class="bg-apple-gray-100 text-apple-dark-gray">
 <header class="bg-gradient-to-b from-black to-gray-900 text-white p-6 shadow-apple-medium flex flex-col md:flex-row items-center md:items-start justify-start gap-6 rounded-b-3xl">
 
-  <!-- Logo en haut à gauche, sans fond ni bordure -->
-  <div class="flex-shrink-0">
-  <img 
-  src="./Shenzor.665b7cdd5c7bb9ab5b85.webp" 
-  alt="Logo Shenzor" 
-  style="height: 200px;"  
-  class="object-contain"
+    <div class="flex-shrink-0">
+    <img 
+    src="./Shenzor.665b7cdd5c7bb9ab5b85.webp" 
+    alt="Logo Shenzor" 
+    style="height: 200px;"   
+    class="object-contain"
 />
 
-  </div>
+    </div>
 
-  <!-- Texte à droite du logo avec padding horizontal -->
-  <div class="text-left md:pt-2">
-    <h1 class="text-3xl md:text-4xl font-bold mb-1 drop-shadow-md">
-      Analyse des Marchés Financiers et Recommandations pour Apple
-    </h1>
-    <p class="opacity-75 text-base md:text-lg drop-shadow-sm">
-      Octobre - Novembre 2024
-    </p>
-  </div>
+    <div class="text-left md:pt-2">
+        <h1 class="text-3xl md:text-4xl font-bold mb-1 drop-shadow-md">
+            Analyse des Marchés Financiers et Recommandations pour Apple
+        </h1>
+        <p class="opacity-75 text-base md:text-lg drop-shadow-sm">
+            Octobre - Novembre 2024
+        </p>
+    </div>
 
 </header>
 
+<nav class="bg-white shadow-apple-subtle sticky top-0 z-50">
+    <div class="container mx-auto flex flex-wrap justify-center p-2 md:p-4">
+        <a href="#dashboard" class="tab-button active">Tableau de Bord</a>
+        <a href="#macro" class="tab-button">Contexte Macroéconomique</a>
+        <a href="#marches" class="tab-button">Performance des Marchés</a>
+        <a href="#sectoriel" class="tab-button">Analyse Sectorielle & Apple</a>
+        <a href="#pestel_swot" class="tab-button">Analyse PESTEL & SWOT</a>
+        <a href="#reco" class="tab-button">Stratégies & Recommandations</a>
+    </div>
+</nav>
 
-
-    <nav class="bg-white shadow-apple-subtle sticky top-0 z-50">
-        <div class="container mx-auto flex flex-wrap justify-center p-2 md:p-4">
-            <button class="tab-button active" data-tab="dashboard">Tableau de Bord</button>
-            <button class="tab-button" data-tab="macro">Contexte Macroéconomique</button>
-            <button class="tab-button" data-tab="marches">Performance des Marchés</button>
-            <button class="tab-button" data-tab="sectoriel">Analyse Sectorielle & Apple</button>
-            <button class="tab-button" data-tab="pestel_swot">Analyse PESTEL & SWOT</button>
-            <button class="tab-button" data-tab="reco">Stratégies & Recommandations</button>
-        </div>
-    </nav>
-
-    <main class="container mx-auto p-4 md:p-8">
-        <div id="dashboard" class="tab-content active">
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Aperçu du Marché et Situation d'Apple</h2>
-                <p class="mb-4 text-apple-dark-gray opacity-80">
-                    Le contexte économique de fin 2024 est marqué par une volatilité élevée, une inflation persistante et une hausse des taux d'intérêt. Cette section offre un aperçu des indicateurs clés et de la position d'Apple dans cet environnement complexe. Explorez les différents onglets pour une analyse détaillée.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    <div class="card">
-                        <h3 class="text-lg font-semibold text-apple-blue">S&P 500</h3>
-                        <p class="text-2xl font-bold text-apple-dark-gray" id="sp500_value">4450 <span class="text-sm font-normal text-apple-green">(+8.7% 6M)</span></p>
-                        <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-lg font-semibold text-apple-blue">NASDAQ</h3>
-                        <p class="text-2xl font-bold text-apple-dark-gray" id="nasdaq_value">13900 <span class="text-sm font-normal text-apple-green">(+4.3% 6M)</span></p>
-                        <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-lg font-semibold text-apple-blue">CAC 40</h3>
-                        <p class="text-2xl font-bold text-apple-dark-gray" id="cac40_value">7300 <span class="text-sm font-normal text-apple-green">(+6.2% 6M)</span></p>
-                        <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-lg font-semibold text-apple-red">Indice VIX</h3>
-                        <p class="text-2xl font-bold text-apple-dark-gray" id="vix_value">16.3</p>
-                        <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-lg font-semibold text-apple-dark-gray">Taux Fed</h3>
-                        <p class="text-2xl font-bold text-apple-dark-gray">5.50%</p>
-                        <p class="text-xs text-apple-dark-gray opacity-60">Novembre 2024</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-lg font-semibold text-apple-dark-gray">Inflation (Annuelle)</h3>
-                        <p class="text-2xl font-bold text-apple-dark-gray">US: 3.4% | UE: 4.3%</p>
-                        <p class="text-xs text-apple-dark-gray opacity-60">Novembre 2024</p>
-                    </div>
+<main class="container mx-auto p-4 md:p-8">
+    <div id="dashboard" class="tab-content">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Aperçu du Marché et Situation d'Apple</h2>
+            <p class="mb-4 text-apple-dark-gray opacity-80">
+                Le contexte économique de fin 2024 est marqué par une volatilité élevée, une inflation persistante et une hausse des taux d'intérêt. Cette section offre un aperçu des indicateurs clés et de la position d'Apple dans cet environnement complexe. Explorez les différents onglets pour une analyse détaillée.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-apple-blue">S&P 500</h3>
+                    <p class="text-2xl font-bold text-apple-dark-gray" id="sp500_value">4450 <span class="text-sm font-normal text-apple-green">(+8.7% 6M)</span></p>
+                    <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
                 </div>
                 <div class="card">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Focus sur Apple</h3>
-                    <p class="mb-2 text-apple-dark-gray opacity-80">Apple, leader technologique mondial, navigue dans un marché en évolution rapide, influencé par la hausse des taux d'intérêt, les pressions inflationnistes et une forte volatilité. Malgré une sous-performance du secteur technologique, Apple affiche une croissance continue de ses services (+25% en 2023) et investit massivement en R&D (IA, RA).</p>
-                    <p class="text-apple-dark-gray opacity-80">L'action Apple a progressé de +15% en 2023. Cependant, le secteur technologique global a montré des rendements de -1.0% à -2.0% entre Octobre et Novembre 2024.</p>
+                    <h3 class="text-lg font-semibold text-apple-blue">NASDAQ</h3>
+                    <p class="text-2xl font-bold text-apple-dark-gray" id="nasdaq_value">13900 <span class="text-sm font-normal text-apple-green">(+4.3% 6M)</span></p>
+                    <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
                 </div>
-            </section>
-        </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-apple-blue">CAC 40</h3>
+                    <p class="text-2xl font-bold text-apple-dark-gray" id="cac40_value">7300 <span class="text-sm font-normal text-apple-green">(+6.2% 6M)</span></p>
+                    <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-apple-red">Indice VIX</h3>
+                    <p class="text-2xl font-bold text-apple-dark-gray" id="vix_value">16.3</p>
+                    <p class="text-xs text-apple-dark-gray opacity-60">Au 15 Nov 2024</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-apple-dark-gray">Taux Fed</h3>
+                    <p class="text-2xl font-bold text-apple-dark-gray">5.50%</p>
+                    <p class="text-xs text-apple-dark-gray opacity-60">Novembre 2024</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-apple-dark-gray">Inflation (Annuelle)</h3>
+                    <p class="text-2xl font-bold text-apple-dark-gray">US: 3.4% | UE: 4.3%</p>
+                    <p class="text-xs text-apple-dark-gray opacity-60">Novembre 2024</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Focus sur Apple</h3>
+                <p class="mb-2 text-apple-dark-gray opacity-80">Apple, leader technologique mondial, navigue dans un marché en évolution rapide, influencé par la hausse des taux d'intérêt, les pressions inflationnistes et une forte volatilité. Malgré une sous-performance du secteur technologique, Apple affiche une croissance continue de ses services (+25% en 2023) et investit massivement en R&D (IA, RA).</p>
+                <p class="text-apple-dark-gray opacity-80">L'action Apple a progressé de +15% en 2023. Cependant, le secteur technologique global a montré des rendements de -1.0% à -2.0% entre Octobre et Novembre 2024.</p>
+            </div>
+        </section>
+    </div>
 
-        <div id="macro" class="tab-content">
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Contexte Macroéconomique Global</h2>
-                <p class="mb-6 text-apple-dark-gray opacity-80">
-                    Cette section détaille les principaux indicateurs macroéconomiques tels que les taux d'intérêt, l'inflation, le PIB et le chômage. Ces facteurs façonnent l'environnement d'investissement et influencent les stratégies des entreprises comme Apple.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Taux d'Intérêt Directeurs (2024)</h3>
-                        <div class="chart-container"><canvas id="interestRatesChart"></canvas></div>
-                        <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Les banques centrales maintiennent des politiques restrictives pour contrer l'inflation, impactant le coût du capital et les valorisations.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Évolution Taux Directeur BCE (2020-2024)</h3>
-                        <div class="chart-container"><canvas id="bceHistoricalRateChart"></canvas></div>
-                        <p class="mt-3 text-sm text-apple-dark-gray opacity-60">La BCE est passée de 0% en 2020-2021 à 4.5% en 2024.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Taux d'Inflation (2024)</h3>
-                        <div class="chart-container"><canvas id="inflationRatesChart"></canvas></div>
-                        <p class="mt-3 text-sm text-apple-dark-gray opacity-60">L'inflation reste élevée, exerçant une pression sur les marges des entreprises et le pouvoir d'achat.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Évolution Inflation Zone Euro (2020-2024)</h3>
-                        <div class="chart-container"><canvas id="euroInflationHistoricalChart"></canvas></div>
-                        <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Pic à 8.5% en 2022, actuellement à 4.3%.</p>
-                    </div>
+    <div id="macro" class="tab-content">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Contexte Macroéconomique Global</h2>
+            <p class="mb-6 text-apple-dark-gray opacity-80">
+                Cette section détaille les principaux indicateurs macroéconomiques tels que les taux d'intérêt, l'inflation, le PIB et le chômage. Ces facteurs façonnent l'environnement d'investissement et influencent les stratégies des entreprises comme Apple.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Taux d'Intérêt Directeurs (2024)</h3>
+                    <div class="chart-container"><canvas id="interestRatesChart"></canvas></div>
+                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Les banques centrales maintiennent des politiques restrictives pour contrer l'inflation, impactant le coût du capital et les valorisations.</p>
                 </div>
-                <div class="card mb-8">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">PIB et Chômage (2024)</h3>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Évolution Taux Directeur BCE (2020-2024)</h3>
+                    <div class="chart-container"><canvas id="bceHistoricalRateChart"></canvas></div>
+                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">La BCE est passée de 0% en 2020-2021 à 4.5% en 2024.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Taux d'Inflation (2024)</h3>
+                    <div class="chart-container"><canvas id="inflationRatesChart"></canvas></div>
+                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">L'inflation reste élevée, exerçant une pression sur les marges des entreprises et le pouvoir d'achat.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Évolution Inflation Zone Euro (2020-2024)</h3>
+                    <div class="chart-container"><canvas id="euroInflationHistoricalChart"></canvas></div>
+                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Pic à 8.5% en 2022, actuellement à 4.3%.</p>
+                </div>
+            </div>
+            <div class="card mb-8">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">PIB et Chômage (2024)</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-apple-gray-200">
+                        <thead class="bg-apple-gray-100">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">Indicateur</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">États-Unis</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">Zone Euro</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">Chine</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-apple-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-apple-dark-gray">PIB (Croissance)</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">2.1%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">1.5%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">4.9%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-apple-dark-gray">Chômage</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">3.8%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">6.3%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">N/A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Croissance modérée dans les économies développées, plus robuste en Chine. Disparités sur le marché du travail.</p>
+            </div>
+            <div class="card">
+                <h4 class="text-lg font-semibold text-apple-dark-gray mb-2">Impact des Taux d'Intérêt sur les Actifs</h4>
+                <p class="text-sm text-apple-dark-gray opacity-80 mb-1"><strong>Actions :</strong> Pression sur les valorisations, surtout pour la croissance. Coût du capital accru.</p>
+                <p class="text-sm text-apple-dark-gray opacity-80 mb-1"><strong>Obligations :</strong> Rendements en hausse, plus attractives pour les investisseurs averses au risque. Obligations d'État (6M 2024): +2.1%, Obligations d'entreprise (6M 2024): +3.5%.</p>
+                <p class="text-sm text-apple-dark-gray opacity-80"><strong>Immobilier :</strong> Fortement impacté. Baisse des transactions (-30% en Europe 2022-2023), pression sur les prix. Performance (6M 2024): -1.8%.</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="marches" class="tab-content">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Performance des Marchés Financiers</h2>
+            <p class="mb-6 text-apple-dark-gray opacity-80">
+                Analyse des principaux indices boursiers, de leur volatilité et de la performance des différentes classes d'actifs. Cette section met en lumière la dynamique actuelle des marchés et les opportunités ou risques qui en découlent.
+            </p>
+            <div class="card mb-8">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Variations Mensuelles des Indices (Nov 2023 - Oct 2024)</h3>
+                <div class="chart-container h-96 md:h-[500px]"><canvas id="monthlyIndexPerformanceChart"></canvas></div>
+                <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Les indices montrent des fluctuations notables, reflétant l'incertitude du marché.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Performance et Volatilité des Indices (6 mois, Mai-Oct 2024)</h3>
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-apple-gray-200">
                             <thead class="bg-apple-gray-100">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">Indicateur</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">États-Unis</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">Zone Euro</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-apple-dark-gray/75 uppercase tracking-wider">Chine</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-apple-dark-gray/75 uppercase">Indice</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-apple-dark-gray/75 uppercase">Performance (6M)</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-apple-dark-gray/75 uppercase">Variance (6M)</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-apple-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-apple-dark-gray">PIB (Croissance)</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">2.1%</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">1.5%</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">4.9%</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-apple-dark-gray">Chômage</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">3.8%</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">6.3%</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-apple-dark-gray opacity-80">N/A</td>
-                                </tr>
+                                <tr><td class="px-4 py-2 text-apple-dark-gray">S&P 500</td><td class="px-4 py-2 text-apple-green">+8.7%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">249.64</td></tr>
+                                <tr><td class="px-4 py-2 text-apple-dark-gray">NASDAQ</td><td class="px-4 py-2 text-apple-green">+4.3%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">331.24</td></tr>
+                                <tr><td class="px-4 py-2 text-apple-dark-gray">CAC 40</td><td class="px-4 py-2 text-apple-green">+6.2%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">210.25</td></tr>
+                                <tr><td class="px-4 py-2 text-apple-dark-gray">Euro Stoxx 50</td><td class="px-4 py-2 text-apple-green">+7.1%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">222.01</td></tr>
+                                <tr><td class="px-4 py-2 text-apple-dark-gray">Hang Seng</td><td class="px-4 py-2 text-apple-red">-3.5%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">378.28</td></tr>
+                                <tr><td class="px-4 py-2 text-apple-dark-gray">FTSE 100</td><td class="px-4 py-2 text-apple-green">+5.0%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">190.44</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Croissance modérée dans les économies développées, plus robuste en Chine. Disparités sur le marché du travail.</p>
+                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Divergence des performances, le Hang Seng sous-performant.</p>
                 </div>
                 <div class="card">
-                    <h4 class="text-lg font-semibold text-apple-dark-gray mb-2">Impact des Taux d'Intérêt sur les Actifs</h4>
-                    <p class="text-sm text-apple-dark-gray opacity-80 mb-1"><strong>Actions :</strong> Pression sur les valorisations, surtout pour la croissance. Coût du capital accru.</p>
-                    <p class="text-sm text-apple-dark-gray opacity-80 mb-1"><strong>Obligations :</strong> Rendements en hausse, plus attractives pour les investisseurs averses au risque. Obligations d'État (6M 2024): +2.1%, Obligations d'entreprise (6M 2024): +3.5%.</p>
-                    <p class="text-sm text-apple-dark-gray opacity-80"><strong>Immobilier :</strong> Fortement impacté. Baisse des transactions (-30% en Europe 2022-2023), pression sur les prix. Performance (6M 2024): -1.8%.</p>
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Évolution de l'Indice VIX (Oct-Nov 2024)</h3>
+                    <div class="chart-container"><canvas id="vixChart"></canvas></div>
+                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Le VIX, indicateur de la peur, reste élevé, signalant une volatilité persistante.</p>
                 </div>
-            </section>
-        </div>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Performance des Classes d'Actifs (6 mois, Mai-Oct 2024)</h3>
+                <div class="chart-container h-80 md:h-96"><canvas id="assetClassPerformanceChart"></canvas></div>
+                <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Les actions et les actifs alternatifs surperforment, l'immobilier est en difficulté.</p>
+            </div>
+        </section>
+    </div>
 
-        <div id="marches" class="tab-content">
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Performance des Marchés Financiers</h2>
-                <p class="mb-6 text-apple-dark-gray opacity-80">
-                    Analyse des principaux indices boursiers, de leur volatilité et de la performance des différentes classes d'actifs. Cette section met en lumière la dynamique actuelle des marchés et les opportunités ou risques qui en découlent.
-                </p>
-                <div class="card mb-8">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Variations Mensuelles des Indices (Nov 2023 - Oct 2024)</h3>
-                    <div class="chart-container h-96 md:h-[500px]"><canvas id="monthlyIndexPerformanceChart"></canvas></div>
-                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Les indices montrent des fluctuations notables, reflétant l'incertitude du marché.</p>
+    <div id="sectoriel" class="tab-content">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Analyse Sectorielle et Focus sur Apple</h2>
+            <p class="mb-6 text-apple-dark-gray opacity-80">
+                Cette section compare la performance des différents secteurs économiques et analyse en détail la situation d'Apple, ses forces, et les défis spécifiques auxquels l'entreprise est confrontée.
+            </p>
+            <div class="card mb-8">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Comparaison des Rendements Sectoriels</h3>
+                <div class="chart-container h-96 md:h-[550px]"><canvas id="sectorPerformanceChart"></canvas></div>
+                <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Rotation sectorielle claire : l'énergie et les biens de consommation de base surperforment la technologie dans le contexte inflationniste actuel.</p>
+                <div class="mt-4">
+                    <h4 class="text-lg font-semibold text-apple-dark-gray mb-2">Détail des performances récentes (Oct-Nov 2024):</h4>
+                    <ul class="list-disc list-inside text-sm text-apple-dark-gray opacity-80">
+                        <li>Technologie: <span id="perfTechRecent" class="font-semibold text-apple-red">-1.0% à -2.0%</span></li>
+                        <li>Énergie: <span id="perfEnergieRecent" class="font-semibold text-apple-green">+3.2% à +4.0%</span></li>
+                        <li>Biens de Consommation: <span id="perfConsoRecent" class="font-semibold text-apple-green">+1.5% à +1.8%</span></li>
+                    </ul>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Performance et Volatilité des Indices (6 mois, Mai-Oct 2024)</h3>
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-apple-gray-200">
-                                <thead class="bg-apple-gray-100">
-                                    <tr>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-apple-dark-gray/75 uppercase">Indice</th>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-apple-dark-gray/75 uppercase">Performance (6M)</th>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-apple-dark-gray/75 uppercase">Variance (6M)</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-apple-gray-200">
-                                    <tr><td class="px-4 py-2 text-apple-dark-gray">S&P 500</td><td class="px-4 py-2 text-apple-green">+8.7%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">249.64</td></tr>
-                                    <tr><td class="px-4 py-2 text-apple-dark-gray">NASDAQ</td><td class="px-4 py-2 text-apple-green">+4.3%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">331.24</td></tr>
-                                    <tr><td class="px-4 py-2 text-apple-dark-gray">CAC 40</td><td class="px-4 py-2 text-apple-green">+6.2%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">210.25</td></tr>
-                                    <tr><td class="px-4 py-2 text-apple-dark-gray">Euro Stoxx 50</td><td class="px-4 py-2 text-apple-green">+7.1%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">222.01</td></tr>
-                                    <tr><td class="px-4 py-2 text-apple-dark-gray">Hang Seng</td><td class="px-4 py-2 text-apple-red">-3.5%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">378.28</td></tr>
-                                    <tr><td class="px-4 py-2 text-apple-dark-gray">FTSE 100</td><td class="px-4 py-2 text-apple-green">+5.0%</td><td class="px-4 py-2 text-apple-dark-gray opacity-80">190.44</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Divergence des performances, le Hang Seng sous-performant.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Évolution de l'Indice VIX (Oct-Nov 2024)</h3>
-                        <div class="chart-container"><canvas id="vixChart"></canvas></div>
-                        <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Le VIX, indicateur de la peur, reste élevé, signalant une volatilité persistante.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Performance des Classes d'Actifs (6 mois, Mai-Oct 2024)</h3>
-                    <div class="chart-container h-80 md:h-96"><canvas id="assetClassPerformanceChart"></canvas></div>
-                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Les actions et les actifs alternatifs surperforment, l'immobilier est en difficulté.</p>
-                </div>
-            </section>
-        </div>
+            </div>
 
-        <div id="sectoriel" class="tab-content">
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Analyse Sectorielle et Focus sur Apple</h2>
-                <p class="mb-6 text-apple-dark-gray opacity-80">
-                    Cette section compare la performance des différents secteurs économiques et analyse en détail la situation d'Apple, ses forces, et les défis spécifiques auxquels l'entreprise est confrontée.
-                </p>
-                <div class="card mb-8">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Comparaison des Rendements Sectoriels</h3>
-                    <div class="chart-container h-96 md:h-[550px]"><canvas id="sectorPerformanceChart"></canvas></div>
-                    <p class="mt-3 text-sm text-apple-dark-gray opacity-60">Rotation sectorielle claire : l'énergie et les biens de consommation de base surperforment la technologie dans le contexte inflationniste actuel.</p>
-                    <div class="mt-4">
-                        <h4 class="text-lg font-semibold text-apple-dark-gray mb-2">Détail des performances récentes (Oct-Nov 2024):</h4>
+            <div class="card mb-8">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Focus sur Apple Inc.</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-apple-blue mb-2">Portefeuille d'Apple</h4>
                         <ul class="list-disc list-inside text-sm text-apple-dark-gray opacity-80">
-                            <li>Technologie: <span id="perfTechRecent" class="font-semibold text-apple-red">-1.0% à -2.0%</span></li>
-                            <li>Énergie: <span id="perfEnergieRecent" class="font-semibold text-apple-green">+3.2% à +4.0%</span></li>
-                            <li>Biens de Consommation: <span id="perfConsoRecent" class="font-semibold text-apple-green">+1.5% à +1.8%</span></li>
+                            <li><strong>Matériel:</strong> iPhones, Mac, iPad</li>
+                            <li><strong>Services:</strong> iCloud, App Store, Apple Music, Apple TV+</li>
+                            <li><strong>Wearables:</strong> Apple Watch, AirPods</li>
+                            <li><strong>Logiciels:</strong> macOS, iOS</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-apple-blue mb-2">Performances Clés</h4>
+                        <p class="text-sm text-apple-dark-gray opacity-80"><strong>Action (2023):</strong> <span class="font-semibold text-apple-green">+15%</span></p>
+                        <p class="text-sm text-apple-dark-gray opacity-80"><strong>Revenus Services (croissance vs année N-1):</strong> <span class="font-semibold text-apple-green">+25%</span></p>
+                        <p class="text-sm text-apple-dark-gray opacity-80"><strong>Dépenses R&D:</strong> Investissements importants dans l'IA et la réalité augmentée.</p>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-lg font-semibold text-apple-dark-gray mb-2">Raisons de la Sous-performance du Secteur Technologique</h4>
+                    <p class="text-sm text-apple-dark-gray opacity-80 mb-1">Impact de la hausse des taux d'intérêt sur les valorisations (taux d'actualisation plus élevés).</p>
+                    <p class="text-sm text-apple-dark-gray opacity-80 mb-1">Réduction des dépenses discrétionnaires des consommateurs en période d'inflation.</p>
+                    <p class="text-sm text-apple-dark-gray opacity-80">Restrictions sur les exportations de semi-conducteurs (USA-Chine) et autres tensions géopolitiques.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Impact de l'Inflation et Recommandations Sectorielles pour Apple</h3>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-md font-semibold text-apple-dark-gray">Secteur Technologique:</h4>
+                        <p class="text-sm text-apple-dark-gray opacity-70 mb-1"><strong>Impact Inflation:</strong> Pression sur les marges (coûts des composants), baisse de la demande pour produits premium, sensibilité aux taux. Rendement moyen -10% (2022-2023).</p>
+                        <p class="text-sm text-apple-dark-gray opacity-70"><strong>Recommandation Apple:</strong> Mettre l'accent sur la croissance des services (moins sensibles à l'inflation des matières premières, revenus récurrents). Maintenir les investissements en R&D (IA/RA) pour la différenciation future. Optimiser la chaîne d'approvisionnement et maintenir le positionnement premium du matériel.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-md font-semibold text-apple-dark-gray">Secteur Énergétique:</h4>
+                        <p class="text-sm text-apple-dark-gray opacity-70 mb-1"><strong>Impact Inflation:</strong> Bénéficie de la hausse des prix des matières premières. Rendement moyen +25% (2022-2023).</p>
+                        <p class="text-sm text-apple-dark-gray opacity-70"><strong>Recommandation Apple:</strong> Indirect. Apple peut continuer ses efforts vers les énergies renouvelables pour ses opérations (stabilité des coûts à long terme, image ESG). Pas d'investissement direct recommandé pour Apple dans ce secteur.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-md font-semibold text-apple-dark-gray">Secteur des Biens de Consommation de Base:</h4>
+                        <p class="text-sm text-apple-dark-gray opacity-70 mb-1"><strong>Impact Inflation:</strong> Hausse de la demande, capacité à répercuter les coûts. Rendement alimentaire +12% (2022-2023).</p>
+                        <p class="text-sm text-apple-dark-gray opacity-70"><strong>Recommandation Apple:</strong> Non applicable directement. Apple opère dans le discrétionnaire. La leçon est la résilience des revenus récurrents (cf. services Apple).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="pestel_swot" class="tab-content">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Analyse PESTEL et SWOT pour Apple</h2>
+            <p class="mb-6 text-apple-dark-gray opacity-80">
+                Cette section présente une analyse prospective des facteurs externes (PESTEL) et une évaluation des forces, faiblesses, opportunités et menaces (SWOT) pour Apple dans le contexte actuel.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Analyse PESTEL (Synthèse)</h3>
+                    <div class="space-y-3 text-sm">
+                        <p><strong class="text-apple-blue">Politico-Juridique:</strong> Restrictions sur exportations tech (USA-Chine), Taxonomie verte UE, normes IFRS, lois sur investissements étrangers en Chine. Impact: Baisse marges tech, favorise renouvelables, coûts de conformité.</p>
+                        <p><strong class="text-apple-blue">Économique:</strong> Inflation élevée, hausse taux d'intérêt, croissance PIB modérée (US/UE) vs forte (Chine), volatilité marchés. Impact: Pression sur consommation discrétionnaire, coût du capital.</p>
+                        <p><strong class="text-apple-blue">Social:</strong> Vieillissement population (demande santé/tech médicale), jeunes consommateurs (demande tech/écoresponsable), inégalités croissantes, télétravail (demande infrastructures numériques).</p>
+                        <p><strong class="text-apple-blue">Technologique:</strong> Investissements massifs en IA, RA. Évolution rapide. Impact: Opportunités d'innovation pour Apple.</p>
+                        <p><strong class="text-apple-blue">Environnemental:</strong> Transition énergétique, catastrophes naturelles fréquentes, régulations carbone. Impact: Opportunités secteur vert, risques chaînes logistiques, coûts pour industries carbonées.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Analyse SWOT pour Apple</h3>
+                    <div class="space-y-3 text-sm">
+                        <p><strong class="text-apple-green">Forces:</strong> Croissance robuste des services (+25%), investissements R&D (IA/RA), forte fidélité à la marque, écosystème solide.</p>
+                        <p><strong class="text-apple-red">Faiblesses:</strong> Dépendance à la fabrication en Chine, sensibilité des produits premium aux cycles économiques.</p>
+                        <p><strong class="text-apple-blue">Opportunités:</strong> Marché IA/RA en expansion, demande pour produits écoresponsables (ESG), croissance de la HealthTech (wearables).</p>
+                        <p><strong class="text-apple-red">Menaces:</strong> Tensions géopolitiques (USA-Chine), inflation/taux d'intérêt élevés, sous-performance secteur tech, perturbations chaînes d'approvisionnement, surveillance réglementaire (App Store, antitrust).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="reco" class="tab-content">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Stratégies d'Investissement et Recommandations pour Apple</h2>
+            <p class="mb-6 text-apple-dark-gray opacity-80">
+                Basé sur l'analyse des dynamiques de marché et la situation spécifique d'Apple, cette section formule des recommandations d'investissement claires et justifiées.
+            </p>
+            <div class="card mb-6">
+                <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Risques et Opportunités Clés</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <h4 class="text-lg font-semibold text-apple-red mb-2">Risques</h4>
+                        <ul class="list-disc list-inside text-apple-dark-gray opacity-80 space-y-1">
+                            <li><strong>Inflation et Taux d'intérêt:</strong> Réduisent le pouvoir d'achat et augmentent le coût du capital pour Apple.</li>
+                            <li><strong>Volatilité du marché:</strong> Entraîne des fluctuations imprévisibles de l'action AAPL.</li>
+                            <li><strong>Tensions géopolitiques (USA-Chine):</strong> Risques sur la chaîne d'approvisionnement et l'accès au marché chinois.</li>
+                            <li><strong>Concurrence accrue:</strong> Intensification de la concurrence dans les services et nouveaux segments (AR/VR).</li>
+                            <li><strong>Réglementation antitrust:</strong> Pression sur l'App Store et d'autres pratiques commerciales.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-apple-green mb-2">Opportunités</h4>
+                        <ul class="list-disc list-inside text-apple-dark-gray opacity-80 space-y-1">
+                            <li><strong>Croissance des Services:</strong> Marge élevée, revenus récurrents, moins sensible aux cycles économiques.</li>
+                            <li><strong>Innovation (IA/RA):</strong> Positionnement d'Apple comme leader des technologies futures.</li>
+                            <li><strong>Marchés Émergents:</strong> Potentiel de croissance significatif, notamment en Inde.</li>
+                            <li><strong>ESG (Environnemental, Social, Gouvernance):</strong> Leadership en durabilité, attirant investisseurs responsables.</li>
+                            <li><strong>HealthTech:</strong> Opportunités d'intégration de la santé dans l'écosystème Apple.</li>
                         </ul>
                     </div>
                 </div>
+            </div>
+        </section>
+    </div>
+</main>
 
-                <div class="card mb-8">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Focus sur Apple Inc.</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="text-lg font-semibold text-apple-blue mb-2">Portefeuille d'Apple</h4>
-                            <ul class="list-disc list-inside text-sm text-apple-dark-gray opacity-80">
-                                <li><strong>Matériel:</strong> iPhones, Mac, iPad</li>
-                                <li><strong>Services:</strong> iCloud, App Store, Apple Music, Apple TV+</li>
-                                <li><strong>Wearables:</strong> Apple Watch, AirPods</li>
-                                <li><strong>Logiciels:</strong> macOS, iOS</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-apple-blue mb-2">Performances Clés</h4>
-                            <p class="text-sm text-apple-dark-gray opacity-80"><strong>Action (2023):</strong> <span class="font-semibold text-apple-green">+15%</span></p>
-                            <p class="text-sm text-apple-dark-gray opacity-80"><strong>Revenus Services (croissance vs année N-1):</strong> <span class="font-semibold text-apple-green">+25%</span></p>
-                            <p class="text-sm text-apple-dark-gray opacity-80"><strong>Dépenses R&D:</strong> Investissements importants dans l'IA et la réalité augmentée.</p>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h4 class="text-lg font-semibold text-apple-dark-gray mb-2">Raisons de la Sous-performance du Secteur Technologique</h4>
-                        <p class="text-sm text-apple-dark-gray opacity-80 mb-1">Impact de la hausse des taux d'intérêt sur les valorisations (taux d'actualisation plus élevés).</p>
-                        <p class="text-sm text-apple-dark-gray opacity-80 mb-1">Réduction des dépenses discrétionnaires des consommateurs en période d'inflation.</p>
-                        <p class="text-sm text-apple-dark-gray opacity-80">Restrictions sur les exportations de semi-conducteurs (USA-Chine) et autres tensions géopolitiques.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Impact de l'Inflation et Recommandations Sectorielles pour Apple</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="text-md font-semibold text-apple-dark-gray">Secteur Technologique:</h4>
-                            <p class="text-sm text-apple-dark-gray opacity-70 mb-1"><strong>Impact Inflation:</strong> Pression sur les marges (coûts des composants), baisse de la demande pour produits premium, sensibilité aux taux. Rendement moyen -10% (2022-2023).</p>
-                            <p class="text-sm text-apple-dark-gray opacity-70"><strong>Recommandation Apple:</strong> Mettre l'accent sur la croissance des services (moins sensibles à l'inflation des matières premières, revenus récurrents). Maintenir les investissements en R&D (IA/RA) pour la différenciation future. Optimiser la chaîne d'approvisionnement et maintenir le positionnement premium du matériel.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-md font-semibold text-apple-dark-gray">Secteur Énergétique:</h4>
-                            <p class="text-sm text-apple-dark-gray opacity-70 mb-1"><strong>Impact Inflation:</strong> Bénéficie de la hausse des prix des matières premières. Rendement moyen +25% (2022-2023).</p>
-                            <p class="text-sm text-apple-dark-gray opacity-70"><strong>Recommandation Apple:</strong> Indirect. Apple peut continuer ses efforts vers les énergies renouvelables pour ses opérations (stabilité des coûts à long terme, image ESG). Pas d'investissement direct recommandé pour Apple dans ce secteur.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-md font-semibold text-apple-dark-gray">Secteur des Biens de Consommation de Base:</h4>
-                            <p class="text-sm text-apple-dark-gray opacity-70 mb-1"><strong>Impact Inflation:</strong> Hausse de la demande, capacité à répercuter les coûts. Rendement alimentaire +12% (2022-2023).</p>
-                            <p class="text-sm text-apple-dark-gray opacity-70"><strong>Recommandation Apple:</strong> Non applicable directement. Apple opère dans le discrétionnaire. La leçon est la résilience des revenus récurrents (cf. services Apple).</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="pestel_swot" class="tab-content">
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Analyse PESTEL et SWOT pour Apple</h2>
-                <p class="mb-6 text-apple-dark-gray opacity-80">
-                    Cette section présente une analyse prospective des facteurs externes (PESTEL) et une évaluation des forces, faiblesses, opportunités et menaces (SWOT) pour Apple dans le contexte actuel.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Analyse PESTEL (Synthèse)</h3>
-                        <div class="space-y-3 text-sm">
-                            <p><strong class="text-apple-blue">Politico-Juridique:</strong> Restrictions sur exportations tech (USA-Chine), Taxonomie verte UE, normes IFRS, lois sur investissements étrangers en Chine. Impact: Baisse marges tech, favorise renouvelables, coûts de conformité.</p>
-                            <p><strong class="text-apple-blue">Économique:</strong> Inflation élevée, hausse taux d'intérêt, croissance PIB modérée (US/UE) vs forte (Chine), volatilité marchés. Impact: Pression sur consommation discrétionnaire, coût du capital.</p>
-                            <p><strong class="text-apple-blue">Social:</strong> Vieillissement population (demande santé/tech médicale), jeunes consommateurs (demande tech/écoresponsable), inégalités croissantes, télétravail (demande infrastructures numériques).</p>
-                            <p><strong class="text-apple-blue">Technologique:</strong> Investissements massifs en IA, RA. Évolution rapide. Impact: Opportunités d'innovation pour Apple.</p>
-                            <p><strong class="text-apple-blue">Environnemental:</strong> Transition énergétique, catastrophes naturelles fréquentes, régulations carbone. Impact: Opportunités secteur vert, risques chaînes logistiques, coûts pour industries carbonées.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Analyse SWOT pour Apple</h3>
-                        <div class="space-y-3 text-sm">
-                            <p><strong class="text-apple-green">Forces:</strong> Croissance robuste des services (+25%), investissements R&D (IA/RA), forte fidélité à la marque, écosystème solide.</p>
-                            <p><strong class="text-apple-red">Faiblesses:</strong> Dépendance à la fabrication en Chine, sensibilité des produits premium aux cycles économiques.</p>
-                            <p><strong class="text-apple-blue">Opportunités:</strong> Marché IA/RA en expansion, demande pour produits écoresponsables (ESG), croissance de la HealthTech (wearables).</p>
-                            <p><strong class="text-apple-red">Menaces:</strong> Tensions géopolitiques (USA-Chine), inflation/taux d'intérêt élevés, sous-performance secteur tech, perturbations chaînes d'approvisionnement, surveillance réglementaire (App Store, antitrust).</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="reco" class="tab-content">
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-apple-dark-gray mb-4">Stratégies d'Investissement et Recommandations pour Apple</h2>
-                <p class="mb-6 text-apple-dark-gray opacity-80">
-                    Basé sur l'analyse des dynamiques de marché et la situation spécifique d'Apple, cette section formule des recommandations d'investissement claires et justifiées.
-                </p>
-                <div class="card mb-6">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Risques et Opportunités Clés</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                        <div>
-                            <h4 class="font-semibold text-apple-red">Risques Identifiés:</h4>
-                            <ul class="list-disc list-inside text-apple-dark-gray opacity-80">
-                                <li>Secteur technologique sensible aux hausses de taux.</li>
-                                <li>Immobilier: Réduction volumes transactions, pression sur prix.</li>
-                                <li>Tensions géopolitiques impactant chaînes d'approvisionnement.</li>
-                                <li>Volatilité persistante des marchés.</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-apple-green">Opportunités Identifiées:</h4>
-                            <ul class="list-disc list-inside text-apple-dark-gray opacity-80">
-                                <li>Énergie renouvelable: Croissance prévue 15%/an sur 5 ans.</li>
-                                <li>Santé: Résilience face à l'inflation, forte demande structurelle.</li>
-                                <li>Actifs alternatifs et ESG: Appétence croissante. Fonds tech ESG +6.5% (6M).</li>
-                                <li>Segment des services d'Apple.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-apple-dark-gray mb-3">Recommandations d'Investissement pour Apple</h3>
-                    <ul class="space-y-3 text-apple-dark-gray opacity-80 text-sm">
-                        <li>
-                            <strong class="text-apple-blue">Maintenir une recommandation "CONSERVER" avec perspective à long terme.</strong>
-                            Les forces fondamentales d'Apple (services, R&D, marque) justifient de conserver le titre malgré les vents contraires sectoriels à court terme.
-                        </li>
-                        <li>
-                            <strong class="text-apple-blue">Prioriser la croissance des revenus des SERVICES.</strong>
-                            Ce segment offre résilience face à l'inflation, marges élevées et revenus récurrents. Surveiller l'ARPU et l'expansion des offres.
-                        </li>
-                        <li>
-                            <strong class="text-apple-blue">Surveiller activement les RISQUES GÉOPOLITIQUES et la DIVERSIFICATION de la chaîne d'approvisionnement.</strong>
-                            La dépendance à la Chine est un facteur de risque critique.
-                        </li>
-                        <li>
-                            <strong class="text-apple-blue">Évaluer l'intégration de l'IA/RA et les NOUVEAUX CYCLES DE PRODUITS.</strong>
-                            Le succès de futures innovations (ex: Vision Pro) est clé pour la croissance.
-                        </li>
-                        <li>
-                            <strong class="text-apple-blue">Renforcer l'intégration et le reporting ESG.</strong>
-                            Crucial pour attirer les capitaux institutionnels et maintenir l'image de marque.
-                        </li>
-                        <li>
-                            <strong class="text-apple-blue">Pour les gestionnaires de portefeuille: envisager une COUVERTURE TACTIQUE.</strong>
-                            Utiliser des options ou ETF pour atténuer la volatilité sectorielle tout en conservant l'exposition à Apple.
-                        </li>
-                    </ul>
-                    <p class="mt-4 text-xs text-apple-dark-gray opacity-60">Ces recommandations sont basées sur les données et analyses présentées dans le rapport en date de Novembre 2024. Les conditions de marché peuvent évoluer.</p>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="bg-white text-apple-dark-gray text-center p-4 mt-8 shadow-inner border-t border-apple-gray-200">
-        <p class="text-sm opacity-75">&copy; 2024 Analyse Financière BlackRock (Simulation). Données à titre indicatif.</p>
-    </footer>
-
-    <script>
-        const dataStore = {
-            latestValues: {
-                sp500: 4450, nasdaq: 13900, cac40: 7300, vix: 16.3, // Nov 15, 2024
-                sp500_prev: 4280, nasdaq_prev: 13250, cac40_prev: 7100, vix_prev: 17.5, // Oct 1, 2024
-                fedRate: 5.50, inflationUS: 3.4, inflationUE: 4.3, // Nov 2024
-                perfTechRecent: [-2.0, -1.8, -1.5, -1.0], // Oct 1, Oct 15, Nov 1, Nov 15
-                perfEnergieRecent: [4.0, 3.8, 3.5, 3.2],
-                perfConsoRecent: [1.5, 1.6, 1.7, 1.8],
-            },
+<script>
+    // DATA pour les graphiques
+    const data = {
+        macro: {
             interestRates: {
-                labels: ['Fed (US)', 'BCE (Zone Euro)', 'BoE (UK)'],
-                data: [5.50, 4.50, 5.00] // 2024 values
+                labels: ['US Fed Rate', 'BCE Key Rate', 'BoE Bank Rate', 'BoJ Policy Rate'],
+                values: [5.50, 4.50, 5.25, -0.10]
             },
-            bceHistoricalRate: {
+            bceHistorical: {
                 labels: ['2020', '2021', '2022', '2023', '2024'],
-                data: [0, 0, 2, 4, 4.5]
+                values: [0.00, 0.00, 2.50, 4.00, 4.50]
             },
             inflationRates: {
-                labels: ['États-Unis', 'Zone Euro', 'Chine'],
-                data: [3.4, 4.3, 1.8] // 2024 values
+                labels: ['US', 'Eurozone', 'UK', 'China', 'Japan'],
+                values: [3.4, 4.3, 4.6, 0.2, 2.9]
             },
             euroInflationHistorical: {
-                labels: ['2020', '2021', '2022', '2023', '2024 (prévision)'],
-                data: [0.3, 2, 8.5, 6, 4.3]
-            },
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                values: [0.3, 2.6, 8.5, 5.2, 4.3]
+            }
+        },
+        marches: {
             monthlyIndexPerformance: {
-                labels: ['Nov 23', 'Déc 23', 'Jan 24', 'Fév 24', 'Mar 24', 'Avr 24', 'Mai 24', 'Juin 24', 'Juil 24', 'Août 24', 'Sep 24', 'Oct 24'],
-                datasets: [
-                    { label: 'S&P 500 (%)', data: [-1.2, 2.5, 1.8, 0.5, -0.7, 1.0, 1.2, 2.0, 1.8, 1.0, 1.9, 0.8], borderColor: '#007AFF', backgroundColor: 'rgba(0, 122, 255, 0.1)', tension: 0.1, fill: true },
-                    { label: 'NASDAQ (%)', data: [-0.8, 3.0, 2.0, 0.8, -1.0, 1.3, 1.5, 2.2, 2.0, 1.2, 2.1, 0.9], borderColor: '#34C759', backgroundColor: 'rgba(52, 199, 89, 0.1)', tension: 0.1, fill: true },
-                    { label: 'CAC 40 (%)', data: [-0.5, 1.8, 1.0, 0.3, -0.5, 0.8, 1.0, 1.5, 1.3, 0.7, 1.5, 0.6], borderColor: '#FF3B30', backgroundColor: 'rgba(255, 59, 48, 0.1)', tension: 0.1, fill: true }
-                ]
+                labels: ['Nov 23', 'Dec 23', 'Jan 24', 'Feb 24', 'Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24'],
+                sp500: [-0.5, 2.1, 1.5, 0.8, -0.2, 1.0, 0.5, 1.2, -0.8, 0.3, -1.0, 0.7],
+                nasdaq: [-1.2, 1.8, 1.0, 0.5, -0.5, 0.7, 0.2, 0.9, -1.5, 0.1, -1.8, 0.4],
+                cac40: [0.3, 1.5, 0.8, 0.3, 0.0, 0.5, 0.3, 0.8, -0.5, 0.1, -0.7, 0.3]
             },
             vixData: {
-                labels: ['Oct 1', 'Oct 7', 'Oct 15', 'Oct 22', 'Oct 29', 'Nov 5', 'Nov 15'],
-                data: [17.5, 18.2, 17.0, 16.5, 15.8, 16.0, 16.3]
+                labels: ['Oct 24', 'Nov 24 (mid)'],
+                values: [18.5, 16.3]
             },
             assetClassPerformance: {
                 labels: ['Actions', 'Obligations', 'Immobilier', 'Matières Premières', 'Actifs Alternatifs'],
-                data: [8.7, 2.1, -1.8, 4.5, 6.5] /* Example data */
-            },
+                values: [6.5, 2.8, -1.8, 4.1, 8.0]
+            }
+        },
+        sectoriel: {
             sectorPerformance: {
-                labels: ['Technologie', 'Santé', 'Finance', 'Consommation Cyclique', 'Consommation Non-Cyclique', 'Énergie', 'Industrie', 'Matériaux', 'Services Publics', 'Communication'],
-                data: [ -1.5, 1.2, 0.8, -0.5, 1.8, 3.5, 0.6, 0.3, 0.9, -0.2]
-            }
-        };
-
-        // --- Tab Functionality ---
-        // Store chart instances globally or in a map to destroy them before re-rendering
-        const charts = {};
-
-        function openTab(tabId) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(tabContent => {
-                tabContent.classList.remove('active');
-            });
-
-            // Deactivate all tab buttons
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.classList.remove('active');
-            });
-
-            // Show the selected tab content
-            const activeTabContent = document.getElementById(tabId);
-            activeTabContent.classList.add('active');
-
-            // Activate the clicked button
-            document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
-
-            // Scroll smoothly to the top of the active tab content
-            // We scroll to the body/html element to ensure the top of the *entire page* is visible,
-            // adjusted by the height of the fixed navigation bar if necessary.
-            const navHeight = document.querySelector('nav').offsetHeight;
-            window.scrollTo({
-                top: activeTabContent.offsetTop - navHeight, // Offset by nav bar height
-                behavior: 'smooth'
-            });
-
-            // Re-render charts when a tab is opened to ensure they are visible and correctly sized
-            switch(tabId) {
-                case 'macro':
-                    renderInterestRatesChart();
-                    renderBCEHistoricalRateChart();
-                    renderInflationRatesChart();
-                    renderEuroInflationHistoricalChart();
-                    break;
-                case 'marches':
-                    renderMonthlyIndexPerformanceChart();
-                    renderVIXChart();
-                    renderAssetClassPerformanceChart();
-                    break;
-                case 'sectoriel':
-                    renderSectorPerformanceChart();
-                    break;
-                // Add cases for other tabs if they contain charts
+                labels: ['Technologie', 'Services de Communication', 'Consommation Discrétionnaire', 'Finance', 'Santé', 'Industrie', 'Énergie', 'Matériaux', 'Biens de Consommation de Base', 'Services Publics', 'Immobilier'],
+                values: [10.5, 8.2, 7.5, 6.0, 5.5, 4.8, 12.0, 7.0, 9.5, 3.0, -2.5]
             }
         }
+    };
 
-        // --- Chart Rendering Functions ---
-        function renderChart(chartId, type, data, options) {
-            // Destroy existing chart instance if it exists
-            if (charts[chartId] instanceof Chart) {
-                charts[chartId].destroy();
-            }
-            const ctx = document.getElementById(chartId).getContext('2d');
-            charts[chartId] = new Chart(ctx, {
-                type: type,
-                data: data,
-                options: options
-            });
-        }
-
-        function renderInterestRatesChart() {
-            renderChart('interestRatesChart', 'bar', {
-                labels: dataStore.interestRates.labels,
+    // Fonctions pour créer les graphiques
+    function createInterestRatesChart() {
+        const ctx = document.getElementById('interestRatesChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.macro.interestRates.labels,
                 datasets: [{
-                    label: 'Taux Directeur (%)',
-                    data: dataStore.interestRates.data,
-                    backgroundColor: ['#007AFF', '#007AFF', '#007AFF'],
-                    borderColor: ['#007AFF', '#007AFF', '#007AFF'],
+                    label: 'Taux d\'Intérêt (%)',
+                    data: data.macro.interestRates.values,
+                    backgroundColor: [
+                        '#007AFF', '#0A84FF', '#34C759', '#FF3B30'
+                    ],
+                    borderColor: [
+                        '#007AFF', '#0A84FF', '#34C759', '#FF3B30'
+                    ],
                     borderWidth: 1
                 }]
-            }, {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: true, grid: { color: '#EBEBF0' } }, x: { grid: { display: false } } }
-            });
-        }
-
-        function renderBCEHistoricalRateChart() {
-            renderChart('bceHistoricalRateChart', 'line', {
-                labels: dataStore.bceHistoricalRate.labels,
-                datasets: [{
-                    label: 'Taux BCE (%)',
-                    data: dataStore.bceHistoricalRate.data,
-                    borderColor: '#007AFF',
-                    backgroundColor: 'rgba(0, 122, 255, 0.2)',
-                    tension: 0.3, fill: true
-                }]
-            }, {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: true, grid: { color: '#EBEBF0' } }, x: { grid: { display: false } } }
-            });
-        }
-
-        function renderInflationRatesChart() {
-            renderChart('inflationRatesChart', 'bar', {
-                labels: dataStore.inflationRates.labels,
-                datasets: [{
-                    label: 'Taux d\'Inflation (%)',
-                    data: dataStore.inflationRates.data,
-                    backgroundColor: ['#FF3B30', '#FF3B30', '#34C759'],
-                    borderColor: ['#FF3B30', '#FF3B30', '#34C759'],
-                    borderWidth: 1
-                }]
-            }, {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: true, grid: { color: '#EBEBF0' } }, x: { grid: { display: false } } }
-            });
-        }
-
-        function renderEuroInflationHistoricalChart() {
-            renderChart('euroInflationHistoricalChart', 'line', {
-                labels: dataStore.euroInflationHistorical.labels,
-                datasets: [{
-                    label: 'Inflation Zone Euro (%)',
-                    data: dataStore.euroInflationHistorical.data,
-                    borderColor: '#FF3B30',
-                    backgroundColor: 'rgba(255, 59, 48, 0.2)',
-                    tension: 0.3, fill: true
-                }]
-            }, {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: false, grid: { color: '#EBEBF0' } }, x: { grid: { display: false } } }
-            });
-        }
-
-        function renderMonthlyIndexPerformanceChart() {
-            renderChart('monthlyIndexPerformanceChart', 'line', dataStore.monthlyIndexPerformance, {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, font: { family: 'Inter' } } }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: false, grid: { color: '#EBEBF0' } }, x: { grid: { display: false } } }
-            });
-        }
-
-        function renderVIXChart() {
-            renderChart('vixChart', 'line', {
-                labels: dataStore.vixData.labels,
-                datasets: [{
-                    label: 'Indice VIX',
-                    data: dataStore.vixData.data,
-                    borderColor: '#FF3B30',
-                    backgroundColor: 'rgba(255, 59, 48, 0.2)',
-                    tension: 0.3, fill: true
-                }]
-            }, {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: false, grid: { color: '#EBEBF0' } }, x: { grid: { display: false } } }
-            });
-        }
-
-        function renderAssetClassPerformanceChart() {
-            renderChart('assetClassPerformanceChart', 'bar', {
-                labels: dataStore.assetClassPerformance.labels,
-                datasets: [{
-                    label: 'Performance (6M) (%)',
-                    data: dataStore.assetClassPerformance.data,
-                    backgroundColor: ['#007AFF', '#34C759', '#FF3B30', '#FFCC00', '#5856D6'],
-                    borderColor: ['#007AFF', '#34C759', '#FF3B30', '#FFCC00', '#5856D6'],
-                    borderWidth: 1
-                }]
-            }, {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { y: { beginAtZero: true, grid: { color: '#EBEBF0' } }, x: { grid: { display: false } } }
-            });
-        }
-
-        function renderSectorPerformanceChart() {
-            renderChart('sectorPerformanceChart', 'bar', {
-                labels: dataStore.sectorPerformance.labels,
-                datasets: [{
-                    label: 'Rendement Mensuel (%)',
-                    data: dataStore.sectorPerformance.data,
-                    backgroundColor: dataStore.sectorPerformance.data.map(value => value < 0 ? '#FF3B30' : '#34C759'),
-                    borderColor: dataStore.sectorPerformance.data.map(value => value < 0 ? '#FF3B30' : '#34C759'),
-                    borderWidth: 1
-                }]
-            }, {
-                indexAxis: 'y',
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                scales: { x: { beginAtZero: true, grid: { color: '#EBEBF0' } }, y: { grid: { display: false } } }
-            });
-        }
-
-        // --- Event Listeners ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set up tab click listeners
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.addEventListener('click', (event) => {
-                    openTab(event.currentTarget.dataset.tab);
-                });
-            });
-
-            // Open dashboard by default on load
-            openTab('dashboard');
-
-            // Populate dynamic values for dashboard
-            document.getElementById('sp500_value').innerHTML = dataStore.latestValues.sp500 + ` <span class="text-sm font-normal text-apple-green">(+8.7% 6M)</span>`;
-            document.getElementById('nasdaq_value').innerHTML = dataStore.latestValues.nasdaq + ` <span class="text-sm font-normal text-apple-green">(+4.3% 6M)</span>`;
-            document.getElementById('cac40_value').innerHTML = dataStore.latestValues.cac40 + ` <span class="text-sm font-normal text-apple-green">(+6.2% 6M)</span>`;
-            document.getElementById('vix_value').innerText = dataStore.latestValues.vix;
-        });
-
-        // Add a global resize observer to redraw charts when their containers change size
-        const chartContainers = document.querySelectorAll('.chart-container');
-        const resizeObserver = new ResizeObserver(entries => {
-            for (let entry of entries) {
-                const canvas = entry.target.querySelector('canvas');
-                if (canvas && charts[canvas.id]) { // Check if a Chart instance exists for this canvas ID
-                    charts[canvas.id].resize();
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Taux (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
                 }
             }
         });
-        chartContainers.forEach(container => {
-            resizeObserver.observe(container);
+    }
+
+    function createBCEHistoricalRateChart() {
+        const ctx = document.getElementById('bceHistoricalRateChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.macro.bceHistorical.labels,
+                datasets: [{
+                    label: 'Taux Directeur BCE (%)',
+                    data: data.macro.bceHistorical.values,
+                    borderColor: '#007AFF',
+                    backgroundColor: 'rgba(0, 122, 255, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Taux (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    function createInflationRatesChart() {
+        const ctx = document.getElementById('inflationRatesChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.macro.inflationRates.labels,
+                datasets: [{
+                    label: 'Taux d\'Inflation (%)',
+                    data: data.macro.inflationRates.values,
+                    backgroundColor: [
+                        '#FF3B30', '#FF3B30', '#FF3B30', '#34C759', '#FF3B30'
+                    ],
+                    borderColor: [
+                        '#FF3B30', '#FF3B30', '#FF3B30', '#34C759', '#FF3B30'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Taux (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    function createEuroInflationHistoricalChart() {
+        const ctx = document.getElementById('euroInflationHistoricalChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.macro.euroInflationHistorical.labels,
+                datasets: [{
+                    label: 'Inflation Zone Euro (%)',
+                    data: data.macro.euroInflationHistorical.values,
+                    borderColor: '#FF3B30',
+                    backgroundColor: 'rgba(255, 59, 48, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Taux (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    function createMonthlyIndexPerformanceChart() {
+        const ctx = document.getElementById('monthlyIndexPerformanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.marches.monthlyIndexPerformance.labels,
+                datasets: [
+                    {
+                        label: 'S&P 500',
+                        data: data.marches.monthlyIndexPerformance.sp500,
+                        borderColor: '#007AFF',
+                        backgroundColor: 'rgba(0, 122, 255, 0.1)',
+                        tension: 0.3,
+                        fill: false
+                    },
+                    {
+                        label: 'NASDAQ',
+                        data: data.marches.monthlyIndexPerformance.nasdaq,
+                        borderColor: '#FF9500', // Orange color for NASDAQ
+                        backgroundColor: 'rgba(255, 149, 0, 0.1)',
+                        tension: 0.3,
+                        fill: false
+                    },
+                    {
+                        label: 'CAC 40',
+                        data: data.marches.monthlyIndexPerformance.cac40,
+                        borderColor: '#34C759', // Green color for CAC 40
+                        backgroundColor: 'rgba(52, 199, 89, 0.1)',
+                        tension: 0.3,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Variation Mensuelle (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    }
+
+    function createVixChart() {
+        const ctx = document.getElementById('vixChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.marches.vixData.labels,
+                datasets: [{
+                    label: 'Indice VIX',
+                    data: data.marches.vixData.values,
+                    borderColor: '#FF3B30',
+                    backgroundColor: 'rgba(255, 59, 48, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Niveau VIX'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    function createAssetClassPerformanceChart() {
+        const ctx = document.getElementById('assetClassPerformanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'polarArea', // Changed to polarArea for a different visualization
+            data: {
+                labels: data.marches.assetClassPerformance.labels,
+                datasets: [{
+                    label: 'Performance (6M) %',
+                    data: data.marches.assetClassPerformance.values,
+                    backgroundColor: [
+                        '#007AFF', // Actions (Blue)
+                        '#34C759', // Obligations (Green)
+                        '#FF3B30', // Immobilier (Red)
+                        '#FFD60A', // Matières Premières (Yellow)
+                        '#5AC8FA'  // Actifs Alternatifs (Light Blue)
+                    ],
+                    borderColor: 'white',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    r: { // For polarArea chart
+                        pointLabels: {
+                            display: true,
+                            centerPointLabels: true,
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            color: '#EBEBF0'
+                        },
+                        ticks: {
+                            display: false // Hide numerical labels on the axis itself
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function createSectorPerformanceChart() {
+        const ctx = document.getElementById('sectorPerformanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.sectoriel.sectorPerformance.labels,
+                datasets: [{
+                    label: 'Performance Annuelle Moyenne (2023) %',
+                    data: data.sectoriel.sectorPerformance.values,
+                    backgroundColor: (context) => {
+                        const value = context.dataset.data[context.dataIndex];
+                        return value >= 0 ? '#34C759' : '#FF3B30'; // Green for positive, Red for negative
+                    },
+                    borderColor: (context) => {
+                        const value = context.dataset.data[context.dataIndex];
+                        return value >= 0 ? '#34C759' : '#FF3B30';
+                    },
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Make bars horizontal
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Performance (%)'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: false,
+                            text: 'Secteur'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    // Initialisation des graphiques au chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+        createInterestRatesChart();
+        createBCEHistoricalRateChart();
+        createInflationRatesChart();
+        createEuroInflationHistoricalChart();
+        createMonthlyIndexPerformanceChart();
+        createVixChart();
+        createAssetClassPerformanceChart();
+        createSectorPerformanceChart();
+
+        // Pour gérer le scroll aux sections au clic sur la nav
+        document.querySelectorAll('nav .tab-button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Empêche le comportement par défaut du lien
+                document.querySelectorAll('nav .tab-button').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
 
-    </script>
+        // Mise à jour de l'état "active" de la navigation lors du scroll
+        const sections = document.querySelectorAll('.tab-content');
+        const navButtons = document.querySelectorAll('nav .tab-button');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navButtons.forEach(button => {
+                        if (button.getAttribute('href') === '#' + entry.target.id) {
+                            button.classList.add('active');
+                        } else {
+                            button.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-50% 0px -50% 0px' // Adjust this to make it more precise (e.g., when 50% of the section is in view)
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+
+</script>
+
 </body>
 </html>
