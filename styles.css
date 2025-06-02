@@ -164,17 +164,22 @@ table td {
 }
 
 .footer-logo-img {
-  height: 100px;
+ height: 150px;
   object-fit: contain;
   margin-bottom: 1rem;
   background-color: black;
   border-radius: 50%;
+  transition: transform 0.6s ease; /* durée plus longue pour l'effet complet */
+  transform: rotate(0deg) scale(1);
 }
-
+.footer-logo-img:hover {
+  transform: rotate(360deg)scale(1.8); /* Zoom 10% */
+}
 .footer-text p {
   color: #1D1D1F;
   font-size: 0.875rem;
   margin: 0.25rem 0;
+  padding-top: 20px;
 }
 
 .footer-text a {
@@ -184,7 +189,10 @@ table td {
   transition: color 0.3s ease;
 }
 
-.footer-text a:hover {
-  color: #0A84FF;
+@media (max-width: 768px) {
+  .footer-logo-img {
+    max-height: 80px;
+    max-width: 60vw;
+  }
 }
 
