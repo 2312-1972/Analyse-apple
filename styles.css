@@ -66,6 +66,19 @@ html {
   }
 }
 
+h2 {
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border: 1px solid #EBEBF0; /* Gris clair pour correspondre à ton design Apple */
+  border-radius: 0.75rem; 
+  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.08);
+  font-size: 1.5rem;
+  color: #1D1D1F;
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(10, 10, 10, 0.7);
+}
+
 /* Boutons de navigation */
 
 .tab-button {
